@@ -1,0 +1,198 @@
+{
+  "table7_ablation_ladder": [
+    {
+      "setting": "Attention only",
+      "event_F1": 0.7763713080168777,
+      "sample_F1": 0.9245573518090839,
+      "station_F1": 0.688620258441017,
+      "fp": 28,
+      "mae": 0.25018325448036194,
+      "polarity": 0.8973713646532439,
+      "source": "archived single-model evaluation (that run's validation-set thresholds)",
+      "event_P": 0.7666666666666667,
+      "event_R": 0.7863247863247863,
+      "b_event": null,
+      "b_station": null,
+      "decomp": null
+    },
+    {
+      "setting": "Auxiliary head, W_ST = 0.30",
+      "event_F1": 0.7914893617021276,
+      "sample_F1": 0.9208117787504975,
+      "station_F1": 0.7945111492281304,
+      "fp": 25,
+      "mae": 0.24567703902721405,
+      "polarity": 0.8835290827740492,
+      "source": "recomputed under the unified protocol from cached predictions",
+      "event_P": 0.788135593220339,
+      "event_R": 0.7948717948717948,
+      "b_event": -1.44,
+      "b_station": -1.5,
+      "decomp": {
+        "single": {
+          "P": 0.15584415584415584,
+          "R": 0.8571428571428571,
+          "F1": 0.26373626373626374,
+          "FP": 65,
+          "FN": 2,
+          "TP": 12
+        },
+        "multi": {
+          "P": 0.7509829619921363,
+          "R": 0.8828967642526965,
+          "F1": 0.811614730878187,
+          "FP": 380,
+          "FN": 152,
+          "TP": 1146
+        }
+      }
+    },
+    {
+      "setting": "Auxiliary head, W_ST = 0",
+      "event_F1": 0.8122270742358079,
+      "sample_F1": 0.9316139116842517,
+      "station_F1": 0.2640218878248974,
+      "fp": 19,
+      "mae": 0.24040859937667847,
+      "polarity": 0.8801733780760627,
+      "source": "recomputed under the unified protocol from cached predictions",
+      "event_P": 0.8303571428571429,
+      "event_R": 0.7948717948717948,
+      "b_event": -1.38,
+      "b_station": -0.2599999999999989,
+      "decomp": {
+        "single": {
+          "P": 0.02522935779816514,
+          "R": 0.7857142857142857,
+          "F1": 0.04888888888888889,
+          "FP": 425,
+          "FN": 3,
+          "TP": 11
+        },
+        "multi": {
+          "P": 0.21531463229719486,
+          "R": 0.43759630200308164,
+          "F1": 0.2886178861788618,
+          "FP": 2070,
+          "FN": 730,
+          "TP": 568
+        }
+      }
+    },
+    {
+      "setting": "Auxiliary head, single-task",
+      "event_F1": 0.8114754098360655,
+      "sample_F1": 0.9365443425076453,
+      "station_F1": 0.002902757619738752,
+      "fp": 28,
+      "mae": 1.8356099128723145,
+      "polarity": 0.5156599552572707,
+      "source": "recomputed under the unified protocol from cached predictions",
+      "event_P": 0.7795275590551181,
+      "event_R": 0.8461538461538461,
+      "b_event": -1.5,
+      "b_station": -1.1199999999999997,
+      "decomp": {
+        "single": {
+          "P": 0.0,
+          "R": 0.0,
+          "F1": 0.0,
+          "FP": 8,
+          "FN": 14,
+          "TP": 0
+        },
+        "multi": {
+          "P": 0.034482758620689655,
+          "R": 0.0015408320493066256,
+          "F1": 0.0029498525073746312,
+          "FP": 56,
+          "FN": 1296,
+          "TP": 2
+        }
+      }
+    },
+    {
+      "setting": "Multi-seed ensemble",
+      "event_F1": 0.8706896551724138,
+      "sample_F1": 0.9548989113530326,
+      "station_F1": 0.8250633828323071,
+      "fp": 14,
+      "mae": 0.2308058887720108,
+      "polarity": 0.8913590604026845,
+      "source": "recomputed under the unified protocol (3-model logit averaging)",
+      "event_P": 0.8782608695652174,
+      "event_R": 0.8632478632478633,
+      "b_event": -1.1399999999999997,
+      "b_station": -1.5,
+      "decomp": {
+        "single": {
+          "P": 0.203125,
+          "R": 0.9285714285714286,
+          "F1": 0.3333333333333333,
+          "FP": 51,
+          "FN": 1,
+          "TP": 13
+        },
+        "multi": {
+          "P": 0.8129963898916968,
+          "R": 0.8674884437596302,
+          "F1": 0.8393589265747298,
+          "FP": 259,
+          "FN": 172,
+          "TP": 1126
+        }
+      }
+    }
+  ],
+  "table6_controlled_comparison": {
+    "settings": [
+      "Attention-only single model",
+      "Auxiliary-head single model",
+      "Multi-seed ensemble"
+    ],
+    "rows": {
+      "Event-level F1": [
+        0.7763713080168777,
+        0.7914893617021276,
+        0.8706896551724138
+      ],
+      "Event-level P": [
+        0.7666666666666667,
+        0.788135593220339,
+        0.8782608695652174
+      ],
+      "Event-level R": [
+        0.7863247863247863,
+        0.7948717948717948,
+        0.8632478632478633
+      ],
+      "Event-level FP": [
+        28,
+        25,
+        14
+      ],
+      "Sample-level F1": [
+        0.9245573518090839,
+        0.9208117787504975,
+        0.9548989113530326
+      ],
+      "Station-independent F1": [
+        0.688620258441017,
+        0.7945111492281304,
+        0.8250633828323071
+      ],
+      "Polarity acc": [
+        0.8973713646532439,
+        0.8835290827740492,
+        0.8913590604026845
+      ],
+      "Event magnitude MAE": [
+        0.25018325448036194,
+        0.24567703902721405,
+        0.2308058887720108
+      ]
+    }
+  },
+  "protocol": "unified protocol: decision bias searched on the validation set (grid -1.5..1.51, step 0.02, target P/R >= 0.90 for both classes), test set (8464 records) evaluated in full; sample level = event decision broadcast to member stations; station F1 = station-independent convention",
+  "note": "event-level/sample-level/station-independent are all non-natural F1; MAE is the event-level magnitude MAE; polarity is the accuracy computed over the test stations where polarity labels are available. Station F1 denotes the station-independent convention; 'Attention only' has no auxiliary head; W_ST = 0 keeps the auxiliary head but removes station-level supervision; 'single-task' supervises the type head only."
+}
