@@ -16,6 +16,9 @@ python evaluate_ablation.py   # Table 6 + Table 7 (controlled comparison + ablat
 
 Tested with Python 3.12, NumPy 2.4. No GPU, no PyTorch.
 
+A detailed user guide (inputs, outputs, options, metric conventions and expected
+behaviour of every script) is provided in [`USER_GUIDE.md`](USER_GUIDE.md).
+
 ### Expected output (exact paper values)
 
 ```
@@ -31,7 +34,7 @@ Ablation ladder (Table 7):
   Auxiliary head, W_ST = 0.30    event=0.7915 sample=0.9208 station=0.7945 FP=25 MAE=0.2457 pol=0.8835
   Auxiliary head, W_ST = 0       event=0.8122 sample=0.9316 station=0.2640 FP=19 MAE=0.2404 pol=0.8802
   Auxiliary head, single-task    event=0.8115 sample=0.9365 station=0.0029 FP=28 MAE=1.8356 pol=0.5157
-  Multi-seed ensemble            event=0.8707 sample=0.9549 station=0.8251 FP=14 MAE=0.2308 pol=-
+  Multi-seed ensemble            event=0.8707 sample=0.9549 station=0.8251 FP=14 MAE=0.2308 pol=0.8914
 ```
 
 The scripts also write `results/evaluation_results.json`,
@@ -48,7 +51,7 @@ The scripts also write `results/evaluation_results.json`,
 | `data/predictions/auxhead_w030_seed42.npz` etc. | single models; the three `W_ST = 0.30` files (seeds 42/7/2024) form the multi-seed ensemble |
 | `data/predictions/auxhead_w0_seed42.npz` | ablation: auxiliary head without station-level supervision |
 | `data/predictions/single_task_seed42.npz` | ablation: single-task (type head only) |
-| `results/single_models/*.json` | archived official single-model evaluations ("Attention only", auxiliary head W_ST = 0.30) |
+| `data/archived/*.json` | archived official single-model evaluations ("Attention only", auxiliary head W_ST = 0.30); used as inputs by `evaluate_ablation.py` |
 | `results/*.json`, `results/*.html` | generated outputs of the two evaluators |
 | `src/` | the model and the training code (for full retraining; see below) |
 | `src/data_pipeline.py` | preprocessing / feature extraction / labels / fixed event-level split (how the feature cache is built) |
@@ -122,3 +125,11 @@ can be fed directly to `evaluate.py`. It requires:
 All evaluators are plain NumPy; every metric, threshold rule and numeric value is
 unchanged from the original experiments, so re-running them reproduces the published
 results exactly, as shown by the identical values above.
+
+## License
+
+This code is released under the MIT License - see [`LICENSE`](LICENSE).
+
+## Citation
+
+If you use this code, please cite the accompanying manuscript.

@@ -5,7 +5,7 @@ Tables 6-7: controlled comparison and ablation ladder (NumPy only; no GPU, no Py
 Settings (manuscript terminology):
   * 'Attention only'                  - station-attention model without the auxiliary
                                          station-level head (archived single-model
-                                         evaluation, results/single_models/
+                                         evaluation, data/archived/
                                          attention_only_seed42.json, under that run's own
                                          validation-set thresholds)
   * 'Auxiliary head, W_ST = 0.30'     - the paper's model, single model (seed 42)
@@ -29,7 +29,7 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 CACHE = 'data/event_split_cache.npz'
 PRE = 'data/predictions/'
-ARCH_ATTENTION_ONLY = 'results/single_models/attention_only_seed42.json'
+ARCH_ATTENTION_ONLY = 'data/archived/attention_only_seed42.json'
 
 MULTI_SEED = [PRE + 'auxhead_w030_seed42.npz', PRE + 'auxhead_w030_seed07.npz',
               PRE + 'auxhead_w030_seed2024.npz']
